@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Jalaluddin Rumi | Cyber Security Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              800: '#9f1239',
+              900: '#881337',
+              dark: '#0f172a',
+              card: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom cyber grid pattern */
+    .bg-cyber-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(225, 29, 72, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(225, 29, 72, 0.05) 1px, transparent 1px);
+    }
+    .red-glow {
+      box-shadow: 0 0 25px -5px rgba(225, 29, 72, 0.4);
+    }
+    .red-border-glow {
+      border-color: rgba(225, 29, 72, 0.4);
+      box-shadow: inset 0 0 15px rgba(225, 29, 72, 0.1);
+    }
+    /* Smooth transitions */
+    * {
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen bg-cyber-grid selection:bg-rose-600 selection:text-white">
+
+  <!-- ================= TOP NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-rose-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-700 to-rose-500 flex items-center justify-center text-white shadow-lg shadow-rose-900/40 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-shield-halved text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-white text-base tracking-wide font-mono">EL RUMI</span>
+            <span class="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-rose-600/20 text-rose-400 border border-rose-500/30">IDN 🇮🇩</span>
+          </div>
+          <p class="text-xs text-rose-300/70 font-mono tracking-tight">Cyber Security &middot; TKJ</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#tentang" class="hover:text-rose-400 transition-colors">Tentang</a>
+        <a href="#pendidikan" class="hover:text-rose-400 transition-colors">Pendidikan</a>
+        <a href="#pengalaman" class="hover:text-rose-400 transition-colors">Pengalaman</a>
+        <a href="#keahlian" class="hover:text-rose-400 transition-colors">Keahlian</a>
+        <a href="#prestasi" class="hover:text-rose-400 transition-colors">Prestasi</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <button id="btnOpenEditModal" class="flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-rose-600 hover:bg-rose-500 text-white shadow-md shadow-rose-600/30 transition-all hover:scale-105">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>Edit Portofolio</span>
+        </button>
+
+        <button onclick="window.print()" class="hidden sm:flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-rose-500/40 transition-all">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>Cetak CV</span>
+        </button>
+
+        <button id="btnResetData" title="Reset data ke profil awal" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-slate-900 rounded-lg transition-colors">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="relative pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
+    <!-- Red ambient light decoration -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-rose-600/15 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Profile Photo with Direct Upload -->
+        <div class="lg:col-span-4 flex flex-col items-center text-center">
+          <div class="relative group">
+            <!-- Red Ring / Border Glow -->
+            <div class="w-52 h-64 sm:w-60 sm:h-72 rounded-2xl p-1 bg-gradient-to-b from-rose-500 via-rose-700 to-slate-900 shadow-2xl red-glow overflow-hidden">
+              <img 
+                id="profileImagePreview" 
+                src="profile.jpg?v=2" 
+                alt="Foto Profil El Jalaluddin Rumi" 
+                class="w-full h-full object-cover object-[center_12%] rounded-xl bg-slate-900"
+                onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'"
+              />
+            </div>
+
+            <!-- Upload Photo Trigger Overlay -->
+            <label for="profileUploadInput" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition-opacity duration-300 backdrop-blur-xs">
+              <div class="w-12 h-12 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-lg mb-2">
+                <i class="fa-solid fa-camera text-lg"></i>
+              </div>
+              <span class="text-xs font-semibold text-white tracking-wide">Ganti Foto Profil</span>
+              <span class="text-[10px] text-slate-300 mt-0.5">JPG / PNG</span>
+            </label>
+            <input type="file" id="profileUploadInput" accept="image/*" class="hidden" />
+
+            <!-- Online / Security Badge -->
+            <div class="absolute -bottom-3 right-4 px-3 py-1 bg-slate-900/90 border border-rose-500/40 rounded-full flex items-center gap-1.5 shadow-md">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-[11px] font-mono text-slate-200">TKJ / CyberSec</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-400 mt-4 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-info text-rose-500"></i>
+            Hover foto di atas untuk mengganti langsung
+          </p>
+        </div>
+
+        <!-- Bio & Main Info -->
+        <div class="lg:col-span-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+          
+          <!-- Cyber Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-mono font-semibold mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+            PORTFOLIO SISWA DIGITAL &bull; TELKOM MALANG
+          </div>
+
+          <!-- Name -->
+          <h1 id="dispName" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            El Jalaluddin Rumi
+          </h1>
+
+          <!-- Role / Title -->
+          <p id="dispRole" class="mt-2 text-base sm:text-lg font-semibold text-rose-400 flex items-center gap-2">
+            <i class="fa-solid fa-terminal text-sm"></i>
+            <span>Siswa SMK Telkom Malang | Minat Spesialis Cyber Security</span>
+          </p>
+
+          <!-- Contact Badges -->
+          <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2.5 text-xs text-slate-300 font-mono">
+            <a id="dispEmailLink" href="mailto:eljalaludinrumi@gmail.com" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-rose-500/40 hover:text-white transition-all">
+              <i class="fa-solid fa-envelope text-rose-400"></i>
+              <span id="dispEmail">eljalaludinrumi@gmail.com</span>
+            </a>
+
+            <a id="dispPhoneLink" href="https://wa.me/6281234567890" target="_blank" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 hover:text-white transition-all">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span id="dispPhone">0812-3456-7890</span>
+            </a>
+
+            <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/80 border border-slate-800">
+              <i class="fa-solid fa-location-dot text-rose-400"></i>
+              <span id="dispLocation">Kota Malang, Prov. Jawa Timur</span>
+            </div>
+          </div>
+
+          <!-- Social Links Bar (Dynamic) -->
+          <div class="mt-6 w-full">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold tracking-wider uppercase text-slate-400">Tautan & Media Sosial</span>
+              <button id="btnQuickAddSocial" class="text-xs text-rose-400 hover:text-rose-300 font-semibold flex items-center gap-1 hover:underline">
+                <i class="fa-solid fa-plus text-[10px]"></i> Tambah Akun
+              </button>
+            </div>
+            
+            <div id="socialLinksContainer" class="flex flex-wrap items-center gap-2">
+              <!-- Dynamically rendered badges -->
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#tentang" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-semibold text-sm shadow-lg shadow-rose-900/30 flex items-center gap-2">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>Eksplorasi Profil</span>
+            </a>
+            <a href="mailto:eljalaludinrumi@gmail.com" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-rose-500/40 text-slate-200 font-semibold text-sm flex items-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Hubungi Saya</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TENTANG SAYA / RINGKASAN ================= -->
+  <section id="tentang" class="py-12 border-t border-slate-800/60 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800/80 red-border-glow relative">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 border border-rose-500/30 flex items-center justify-center">
+              <i class="fa-solid fa-id-card-clip"></i>
+            </div>
+            <h2 class="text-lg sm:text-xl font-bold text-white">Ringkasan Profil</h2>
+          </div>
+          <button onclick="openModalForSection('summary')" class="text-xs px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-900/40 flex items-center gap-1.5">
+            <i class="fa-solid fa-pen text-[10px]"></i> Edit
+          </button>
+        </div>
+
+        <p id="dispSummary" class="text-slate-300 leading-relaxed text-sm sm:text-base">
+          Siswa aktif dan berdedikasi tinggi di SMK Telkom Malang dengan minat yang kuat pada bidang Cyber Security. Memiliki kemampuan bahasa Inggris yang baik, mampu bekerja sama dalam tim, serta aktif dalam kegiatan ekstrakurikuler dan proyek sekolah. Siap untuk terus belajar dan berkontribusi secara maksimal.
+        </p>
+
+        <!-- Cyber Highlights Badges -->
+        <div class="mt-6 pt-5 border-t border-slate-800 flex flex-wrap gap-2 text-xs font-mono">
+          <span class="px-3 py-1 rounded-full bg-slate-800/80 text-rose-300 border border-rose-500/20">🛡️ Minat: Cyber Security & InfoSec</span>
+          <span class="px-3 py-1 rounded-full bg-slate-800/80 text-rose-300 border border-rose-500/20">🌐 International Class Program</span>
+          <span class="px-3 py-1 rounded-full bg-slate-800/80 text-rose-300 border border-rose-500/20">🤝 Team Collaboration & Leadership</span>
+          <span class="px-3 py-1 rounded-full bg-slate-800/80 text-emerald-300 border border-emerald-500/20">⭐ Rapor Rata-rata: 87</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PENDIDIKAN & ORGANISASI ================= -->
+  <section id="pendidikan" class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- PENDIDIKAN -->
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 border border-rose-500/30 flex items-center justify-center">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Riwayat Pendidikan</h3>
+                <p class="text-xs text-slate-400">Jejak akademik formal</p>
+              </div>
+            </div>
+            <button onclick="openModalForSection('education')" class="text-xs px-2.5 py-1.5 rounded-md bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 flex items-center gap-1 transition-all">
+              <i class="fa-solid fa-plus text-[10px]"></i> Kelola
+            </button>
+          </div>
+
+          <div id="educationList" class="space-y-4">
+            <!-- Dynamic education cards -->
+          </div>
+        </div>
+
+        <!-- ORGANISASI & EKSTRAKURIKULER -->
+        <div id="pengalaman">
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 border border-rose-500/30 flex items-center justify-center">
+                <i class="fa-solid fa-users-gear"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Organisasi & Ekstrakurikuler</h3>
+                <p class="text-xs text-slate-400">Aktivitas dan kepemimpinan</p>
+              </div>
+            </div>
+            <button onclick="openModalForSection('organization')" class="text-xs px-2.5 py-1.5 rounded-md bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 flex items-center gap-1 transition-all">
+              <i class="fa-solid fa-plus text-[10px]"></i> Kelola
+            </button>
+          </div>
+
+          <div id="organizationList" class="space-y-4">
+            <!-- Dynamic organization cards -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PROYEK & KEPANITIAAN ================= -->
+  <section id="proyek" class="py-14 border-t border-slate-800/60 bg-slate-900/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <div class="inline-flex items-center gap-2 text-rose-500 font-mono text-xs font-semibold uppercase tracking-wider mb-1">
+            <i class="fa-solid fa-diagram-project"></i> Portfolio Showcase
+          </div>
+          <h2 class="text-2xl font-bold text-white">Pengalaman Proyek & Kepanitiaan</h2>
+        </div>
+        <button onclick="openModalForSection('projects')" class="text-xs px-3 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-semibold flex items-center gap-1.5 shadow-md shadow-rose-600/30">
+          <i class="fa-solid fa-plus"></i> Tambah Proyek
+        </button>
+      </div>
+
+      <div id="projectList" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Dynamic project cards -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= KEAHLIAN & PRESTASI ================= -->
+  <section id="keahlian" class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- KEAHLIAN (HARD & SOFT SKILLS) -->
+        <div class="lg:col-span-7">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 border border-rose-500/30 flex items-center justify-center">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Keahlian & Kompetensi</h3>
+            </div>
+            <button onclick="openModalForSection('skills')" class="text-xs px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-900/40 flex items-center gap-1">
+              <i class="fa-solid fa-pen text-[10px]"></i> Edit
+            </button>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Hard Skills Card -->
+            <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <h4 class="text-sm font-semibold text-rose-400 font-mono uppercase tracking-wider mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-microchip"></i> Hard Skills (Teknis)
+              </h4>
+              <div id="hardSkillsContainer" class="flex flex-wrap gap-2">
+                <!-- badges -->
+              </div>
+            </div>
+
+            <!-- Soft Skills Card -->
+            <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <h4 class="text-sm font-semibold text-rose-400 font-mono uppercase tracking-wider mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-comments"></i> Soft Skills (Karakter & Kerja Tim)
+              </h4>
+              <div id="softSkillsContainer" class="flex flex-wrap gap-2">
+                <!-- badges -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRESTASI & SERTIFIKAT -->
+        <div id="prestasi" class="lg:col-span-5">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 border border-rose-500/30 flex items-center justify-center">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Prestasi & Penghargaan</h3>
+            </div>
+            <button onclick="openModalForSection('achievements')" class="text-xs px-2.5 py-1 rounded-md bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 flex items-center gap-1 transition-all">
+              <i class="fa-solid fa-plus text-[10px]"></i> Kelola
+            </button>
+          </div>
+
+          <div id="achievementList" class="space-y-4">
+            <!-- Dynamic achievements -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-16 border-t border-slate-800/80 bg-slate-950 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
+      <div class="flex items-center justify-center gap-2 text-rose-500 mb-2">
+        <i class="fa-solid fa-shield-cat text-lg"></i>
+        <span class="font-bold font-mono tracking-wider text-slate-300">EL JALALUDDIN RUMI</span>
+      </div>
+      <p>Portofolio Digital Siswa &bull; SMK Telkom Malang &bull; Cyber Security Enthusiast</p>
+      <p class="mt-1">Dibuat dengan tema Merah Putih & teknologi web modern interaktif.</p>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL: EDIT SEMUA INFORMASI ================= -->
+  <div id="editModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-slate-900 border border-rose-900/50 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-800 bg-slate-950/60 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-rose-500"></i>
+          <h3 class="font-bold text-white text-base sm:text-lg">Panel Manajemen Konten Portofolio</h3>
+        </div>
+        <button id="btnCloseModal" class="text-slate-400 hover:text-white text-lg p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Tabs -->
+      <div class="flex border-b border-slate-800 bg-slate-950/30 px-6 gap-2 overflow-x-auto text-xs font-semibold">
+        <button onclick="switchTab('tab-bio')" class="modal-tab-btn py-3 px-3 border-b-2 border-rose-500 text-rose-400" data-tab="tab-bio">Biodata & Kontak</button>
+        <button onclick="switchTab('tab-edu')" class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200" data-tab="tab-edu">Pendidikan</button>
+        <button onclick="switchTab('tab-org')" class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200" data-tab="tab-org">Organisasi</button>
+        <button onclick="switchTab('tab-proj')" class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200" data-tab="tab-proj">Proyek</button>
+        <button onclick="switchTab('tab-skills')" class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200" data-tab="tab-skills">Keahlian</button>
+        <button onclick="switchTab('tab-achieve')" class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200" data-tab="tab-achieve">Prestasi</button>
+      </div>
+
+      <!-- Modal Body (Tab Contents) -->
+      <div class="p-6 overflow-y-auto space-y-6 text-sm">
+        
+        <!-- TAB 1: BIODATA & KONTAK -->
+        <div id="tab-bio" class="tab-pane space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Nama Lengkap</label>
+            <input type="text" id="inputName" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Judul / Profesi</label>
+            <input type="text" id="inputRole" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Email</label>
+              <input type="email" id="inputEmail" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Telepon / WhatsApp</label>
+              <input type="text" id="inputPhone" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Lokasi Domisili</label>
+            <input type="text" id="inputLocation" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Ringkasan Profil</label>
+            <textarea id="inputSummary" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none"></textarea>
+          </div>
+        </div>
+
+        <!-- TAB 2: PENDIDIKAN -->
+        <div id="tab-edu" class="tab-pane hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-400">Daftar instansi pendidikan Anda</span>
+            <button onclick="addEducationItem()" class="text-xs px-2.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded font-medium">
+              + Tambah Pendidikan
+            </button>
+          </div>
+          <div id="modalEduContainer" class="space-y-4">
+            <!-- dynamic items -->
+          </div>
+        </div>
+
+        <!-- TAB 3: ORGANISASI -->
+        <div id="tab-org" class="tab-pane hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-400">Daftar organisasi & ekstrakurikuler</span>
+            <button onclick="addOrgItem()" class="text-xs px-2.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded font-medium">
+              + Tambah Organisasi
+            </button>
+          </div>
+          <div id="modalOrgContainer" class="space-y-4">
+            <!-- dynamic items -->
+          </div>
+        </div>
+
+        <!-- TAB 4: PROYEK -->
+        <div id="tab-proj" class="tab-pane hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-400">Daftar proyek & kepanitiaan</span>
+            <button onclick="addProjectItem()" class="text-xs px-2.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded font-medium">
+              + Tambah Proyek
+            </button>
+          </div>
+          <div id="modalProjContainer" class="space-y-4">
+            <!-- dynamic items -->
+          </div>
+        </div>
+
+        <!-- TAB 5: KEAHLIAN -->
+        <div id="tab-skills" class="tab-pane hidden space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Hard Skills (Pisahkan dengan koma)</label>
+            <input type="text" id="inputHardSkills" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+            <p class="text-[11px] text-slate-400 mt-1">Contoh: Linux, Jaringan Komputer, Python, Canva Design, Microsoft Office</p>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Soft Skills (Pisahkan dengan koma)</label>
+            <input type="text" id="inputSoftSkills" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+            <p class="text-[11px] text-slate-400 mt-1">Contoh: Komunikasi, Kerja Sama Tim, Manajemen Waktu, Problem Solving</p>
+          </div>
+        </div>
+
+        <!-- TAB 6: PRESTASI -->
+        <div id="tab-achieve" class="tab-pane hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-400">Daftar penghargaan & sertifikat</span>
+            <button onclick="addAchievementItem()" class="text-xs px-2.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded font-medium">
+              + Tambah Prestasi
+            </button>
+          </div>
+          <div id="modalAchieveContainer" class="space-y-4">
+            <!-- dynamic items -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3 border-t border-slate-800 bg-slate-950/60 flex items-center justify-end gap-3">
+        <button id="btnCancelEdit" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 text-xs font-semibold">
+          Tutup
+        </button>
+        <button id="btnSaveAllData" class="px-5 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold shadow-md shadow-rose-600/30">
+          Simpan Semua Perubahan
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= MODAL: TAMBAH SOSIAL MEDIA CEPAT ================= -->
+  <div id="socialModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-rose-900/50 rounded-2xl w-full max-w-md p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-share-nodes text-rose-500"></i>
+          Tambah Akun Media Sosial / Platform
+        </h3>
+        <button onclick="closeSocialModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-sm">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Pilih Platform</label>
+          <select id="selectPlatform" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none">
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="GitHub">GitHub</option>
+            <option value="Instagram">Instagram</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Twitter">Twitter / X</option>
+            <option value="YouTube">YouTube</option>
+            <option value="TryHackMe">TryHackMe</option>
+            <option value="Website">Situs Pribadi / Blog</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Nama Tampilan (Label)</label>
+          <input type="text" id="socialLabelInput" placeholder="Contoh: @eljalaludin / LinkedIn Profil" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Tautan URL Lengkap</label>
+          <input type="url" id="socialUrlInput" placeholder="https://..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white focus:border-rose-500 focus:outline-none" />
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button onclick="closeSocialModal()" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white text-xs font-semibold">
+            Batal
+          </button>
+          <button onclick="saveNewSocialBadge()" class="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold">
+            Tambahkan
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 border border-rose-500/50 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+    <i class="fa-solid fa-circle-check text-rose-500 text-base"></i>
+    <span id="toastMsg">Perubahan berhasil disimpan!</span>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Initial CV Default Data
+    const DEFAULT_PORTFOLIO_DATA = {
+      name: "El Jalaluddin Rumi",
+      role: "Siswa SMK Telkom Malang | Minat Spesialis Cyber Security",
+      email: "eljalaludinrumi@gmail.com",
+      phone: "0812-3456-7890",
+      location: "Kota Malang, Provinsi Jawa Timur",
+      summary: "Siswa aktif dan berdedikasi tinggi di SMK Telkom Malang dengan minat yang kuat pada bidang Cyber Security. Memiliki kemampuan bahasa Inggris yang baik, mampu bekerja sama dalam tim, serta aktif dalam kegiatan ekstrakurikuler dan proyek sekolah. Siap untuk terus belajar dan berkontribusi secara maksimal.",
+      profilePhoto: "profile.jpg?v=2",
+      socialLinks: [
+        { platform: "LinkedIn", label: "LinkedIn", url: "https://www.linkedin.com/in/el-jalaludin-rumi-a4931444a/", icon: "fa-brands fa-linkedin" },
+        { platform: "GitHub", label: "GitHub", url: "https://github.com/", icon: "fa-brands fa-github" },
+        { platform: "Instagram", label: "Instagram", url: "https://instagram.com/", icon: "fa-brands fa-instagram" },
+        { platform: "TikTok", label: "TikTok", url: "https://tiktok.com/", icon: "fa-brands fa-tiktok" }
+      ],
+      education: [
+        {
+          school: "SMK Telkom Malang",
+          major: "Jurusan TKJ / Teknik Komputer Jaringan (International Class Program)",
+          period: "2026 – Sekarang",
+          details: "Rata-rata Nilai Rapor: 87. Mata Pelajaran Favorit: Bahasa Inggris dan Informatika."
+        },
+        {
+          school: "SMPN 1 Trenggalek",
+          major: "Pendidikan Menengah Pertama",
+          period: "2023 – 2026",
+          details: "Aktif dalam kegiatan akademik dan non-akademik di sekolah."
+        }
+      ],
+      organization: [
+        {
+          role: "Anggota Organisasi BDI",
+          institution: "SMK Telkom Malang",
+          period: "2026 – Sekarang",
+          desc: "Berpartisipasi aktif dalam kegiatan BDI serta melatih kedisiplinan dan kerja sama tim dalam mengurus kegiatan keagamaan."
+        },
+        {
+          role: "Anggota Ekstrakurikuler Marching Band",
+          institution: "SMPN 1 Trenggalek",
+          period: "2023 – 2024",
+          desc: "Berpartisipasi aktif dalam kegiatan Marching Band dan mengikuti ajang perlombaan, melatih kedisiplinan serta kerja sama tim dalam kompetisi antarsekolah."
+        }
+      ],
+      projects: [
+        {
+          title: "Ketua Pelaksana – Proyek P5 (Penguatan Profil Pelajar Pancasila)",
+          period: "2023 – 2023",
+          category: "Kepemimpinan & Kolaborasi",
+          desc: "Memimpin tim yang terdiri dari 6 siswa dalam pembuatan batik dan memamerkannya di pameran sekolah. Menyusun laporan kegiatan serta mempresentasikan hasil karya di depan para guru dan wali murid."
+        }
+      ],
+      hardSkills: [
+        "Jaringan Komputer (TKJ Dasar)",
+        "Konsep Cyber Security & InfoSec",
+        "Bahasa Inggris (Aktif)",
+        "Microsoft Office (Word, Excel, PPT)",
+        "Canva Graphic Design"
+      ],
+      softSkills: [
+        "Komunikasi Efektif",
+        "Kerja Sama Tim (Teamwork)",
+        "Manajemen Waktu",
+        "Disiplin & Kepemimpinan",
+        "Cepat Belajar (Fast Learner)"
+      ],
+      achievements: [
+        {
+          title: "Juara 3 – Lomba Marching Band Tingkat Provinsi",
+          year: "2024",
+          organizer: "Tingkat Provinsi Jawa Timur",
+          desc: "Meraih podium 3 berkat kekompakan tim, disiplin latihan tinggi, dan eksekusi formasi yang presisi."
+        }
+      ]
+    };
+
+    // State
+    let portfolioData = {};
+
+    function loadData() {
+      const saved = localStorage.getItem('el_rumi_portfolio_data');
+      if (saved) {
+        try {
+          portfolioData = JSON.parse(saved);
+          // Update profile photo reference if it's default file to ensure fresh image is displayed
+          if (!portfolioData.profilePhoto || portfolioData.profilePhoto.startsWith('profile.jpg')) {
+            portfolioData.profilePhoto = 'profile.jpg?v=' + Date.now();
+          }
+        } catch (e) {
+          portfolioData = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA));
+        }
+      } else {
+        portfolioData = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA));
+      }
+      renderPortfolio();
+    }
+
+    function saveData() {
+      localStorage.setItem('el_rumi_portfolio_data', JSON.stringify(portfolioData));
+      renderPortfolio();
+      showToast("Data portofolio berhasil diperbarui!");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
+    }
+
+    // Render Data into DOM
+    function renderPortfolio() {
+      // Basic info
+      document.getElementById('dispName').innerText = portfolioData.name;
+      document.getElementById('dispRole').innerHTML = `<i class="fa-solid fa-terminal text-sm"></i> <span>${portfolioData.role}</span>`;
+      document.getElementById('dispEmail').innerText = portfolioData.email;
+      document.getElementById('dispEmailLink').href = `mailto:${portfolioData.email}`;
+      document.getElementById('dispPhone').innerText = portfolioData.phone;
+      document.getElementById('dispPhoneLink').href = `https://wa.me/${portfolioData.phone.replace(/[^0-9]/g, '')}`;
+      document.getElementById('dispLocation').innerText = portfolioData.location;
+      document.getElementById('dispSummary').innerText = portfolioData.summary;
+
+      // Photo
+      if (portfolioData.profilePhoto) {
+        document.getElementById('profileImagePreview').src = portfolioData.profilePhoto;
+      }
+
+      // Social Links
+      const socCont = document.getElementById('socialLinksContainer');
+      socCont.innerHTML = '';
+      portfolioData.socialLinks.forEach((item, idx) => {
+        const badge = document.createElement('div');
+        badge.className = "group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-rose-500/50 text-slate-300 hover:text-white transition-all text-xs font-mono";
+        badge.innerHTML = `
+          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5">
+            <i class="${item.icon || 'fa-solid fa-link'} text-rose-500"></i>
+            <span>${item.label || item.platform}</span>
+          </a>
+          <button onclick="removeSocialLink(${idx})" class="text-slate-500 hover:text-rose-400 ml-1 text-[11px] opacity-0 group-hover:opacity-100 transition-opacity" title="Hapus tautan ini">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        `;
+        socCont.appendChild(badge);
+      });
+
+      // Education
+      const eduList = document.getElementById('educationList');
+      eduList.innerHTML = '';
+      portfolioData.education.forEach(edu => {
+        const card = document.createElement('div');
+        card.className = "p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-rose-900/50 transition-all";
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h4 class="font-bold text-white text-base">${edu.school}</h4>
+              <p class="text-xs font-medium text-rose-400 font-mono mt-0.5">${edu.major}</p>
+            </div>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap">${edu.period}</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-3 leading-relaxed">${edu.details || ''}</p>
+        `;
+        eduList.appendChild(card);
+      });
+
+      // Organization
+      const orgList = document.getElementById('organizationList');
+      orgList.innerHTML = '';
+      portfolioData.organization.forEach(org => {
+        const card = document.createElement('div');
+        card.className = "p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-rose-900/50 transition-all";
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h4 class="font-bold text-white text-base">${org.role}</h4>
+              <p class="text-xs font-medium text-rose-400 font-mono mt-0.5">${org.institution}</p>
+            </div>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap">${org.period}</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-3 leading-relaxed">${org.desc || ''}</p>
+        `;
+        orgList.appendChild(card);
+      });
+
+      // Projects
+      const projList = document.getElementById('projectList');
+      projList.innerHTML = '';
+      portfolioData.projects.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-rose-600/40 red-border-glow transition-all flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+              <span class="px-2 py-0.5 rounded bg-rose-950/60 text-rose-400 border border-rose-800/40">${p.category || 'Proyek'}</span>
+              <span>${p.period}</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white mt-2">${p.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">${p.desc}</p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center gap-2 text-xs text-rose-400 font-mono">
+            <i class="fa-solid fa-check-circle"></i>
+            <span>Dokumentasi & Presentasi Selesai</span>
+          </div>
+        `;
+        projList.appendChild(card);
+      });
+
+      // Hard Skills
+      const hardSkillsCont = document.getElementById('hardSkillsContainer');
+      hardSkillsCont.innerHTML = '';
+      portfolioData.hardSkills.forEach(skill => {
+        const badge = document.createElement('span');
+        badge.className = "px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono text-slate-200 flex items-center gap-2 hover:border-rose-500/40";
+        badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> ${skill}`;
+        hardSkillsCont.appendChild(badge);
+      });
+
+      // Soft Skills
+      const softSkillsCont = document.getElementById('softSkillsContainer');
+      softSkillsCont.innerHTML = '';
+      portfolioData.softSkills.forEach(skill => {
+        const badge = document.createElement('span');
+        badge.className = "px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono text-slate-200 flex items-center gap-2 hover:border-emerald-500/40";
+        badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ${skill}`;
+        softSkillsCont.appendChild(badge);
+      });
+
+      // Achievements
+      const achieveList = document.getElementById('achievementList');
+      achieveList.innerHTML = '';
+      portfolioData.achievements.forEach(ach => {
+        const card = document.createElement('div');
+        card.className = "p-5 rounded-xl bg-gradient-to-br from-slate-900 to-rose-950/20 border border-rose-900/30 flex items-start gap-4";
+        card.innerHTML = `
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 text-lg">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-rose-600/20 text-rose-300 font-semibold">${ach.year}</span>
+              <span class="text-[11px] text-slate-400">${ach.organizer || ''}</span>
+            </div>
+            <h4 class="font-bold text-white text-sm sm:text-base mt-1.5">${ach.title}</h4>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">${ach.desc || ''}</p>
+          </div>
+        `;
+        achieveList.appendChild(card);
+      });
+    }
+
+    // Profile photo upload listener
+    document.getElementById('profileUploadInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          portfolioData.profilePhoto = evt.target.result;
+          saveData();
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Remove Social Link
+    function removeSocialLink(idx) {
+      if (confirm("Hapus tautan akun ini?")) {
+        portfolioData.socialLinks.splice(idx, 1);
+        saveData();
+      }
+    }
+
+    // Quick Add Social Modal
+    const socialModal = document.getElementById('socialModal');
+    document.getElementById('btnQuickAddSocial').addEventListener('click', () => {
+      socialModal.classList.remove('hidden');
+    });
+
+    function closeSocialModal() {
+      socialModal.classList.add('hidden');
+      document.getElementById('socialLabelInput').value = '';
+      document.getElementById('socialUrlInput').value = '';
+    }
+
+    function saveNewSocialBadge() {
+      const platform = document.getElementById('selectPlatform').value;
+      const label = document.getElementById('socialLabelInput').value.trim() || platform;
+      const url = document.getElementById('socialUrlInput').value.trim();
+
+      if (!url) {
+        alert("Harap masukkan tautan URL yang valid!");
+        return;
+      }
+
+      let icon = "fa-solid fa-link";
+      if (platform === 'LinkedIn') icon = "fa-brands fa-linkedin";
+      if (platform === 'GitHub') icon = "fa-brands fa-github";
+      if (platform === 'Instagram') icon = "fa-brands fa-instagram";
+      if (platform === 'TikTok') icon = "fa-brands fa-tiktok";
+      if (platform === 'Twitter') icon = "fa-brands fa-x-twitter";
+      if (platform === 'YouTube') icon = "fa-brands fa-youtube";
+      if (platform === 'TryHackMe') icon = "fa-solid fa-user-secret";
+
+      portfolioData.socialLinks.push({ platform, label, url, icon });
+      saveData();
+      closeSocialModal();
+    }
+
+    // Edit Modal Management
+    const editModal = document.getElementById('editModal');
+    document.getElementById('btnOpenEditModal').addEventListener('click', () => {
+      openEditModal();
+    });
+    document.getElementById('btnCloseModal').addEventListener('click', closeEditModal);
+    document.getElementById('btnCancelEdit').addEventListener('click', closeEditModal);
+
+    function openEditModal() {
+      populateModalInputs();
+      editModal.classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+      editModal.classList.add('hidden');
+    }
+
+    function openModalForSection(section) {
+      openEditModal();
+      if (section === 'summary') switchTab('tab-bio');
+      if (section === 'education') switchTab('tab-edu');
+      if (section === 'organization') switchTab('tab-org');
+      if (section === 'projects') switchTab('tab-proj');
+      if (section === 'skills') switchTab('tab-skills');
+      if (section === 'achievements') switchTab('tab-achieve');
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.modal-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('border-rose-500', 'text-rose-400');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-rose-500', 'text-rose-400');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+    }
+
+    function populateModalInputs() {
+      // Tab 1
+      document.getElementById('inputName').value = portfolioData.name;
+      document.getElementById('inputRole').value = portfolioData.role;
+      document.getElementById('inputEmail').value = portfolioData.email;
+      document.getElementById('inputPhone').value = portfolioData.phone;
+      document.getElementById('inputLocation').value = portfolioData.location;
+      document.getElementById('inputSummary').value = portfolioData.summary;
+
+      // Tab 2: Education
+      renderModalEdu();
+
+      // Tab 3: Organization
+      renderModalOrg();
+
+      // Tab 4: Projects
+      renderModalProj();
+
+      // Tab 5: Skills
+      document.getElementById('inputHardSkills').value = portfolioData.hardSkills.join(', ');
+      document.getElementById('inputSoftSkills').value = portfolioData.softSkills.join(', ');
+
+      // Tab 6: Achievements
+      renderModalAchieve();
+    }
+
+    function renderModalEdu() {
+      const container = document.getElementById('modalEduContainer');
+      container.innerHTML = '';
+      portfolioData.education.forEach((edu, i) => {
+        const item = document.createElement('div');
+        item.className = "p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2";
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-rose-400 font-bold">Pendidikan #${i + 1}</span>
+            <button onclick="deleteEdu(${i})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i> Hapus</button>
+          </div>
+          <input type="text" value="${edu.school}" onchange="portfolioData.education[${i}].school=this.value" placeholder="Nama Sekolah" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          <input type="text" value="${edu.major}" onchange="portfolioData.education[${i}].major=this.value" placeholder="Jurusan / Program" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" value="${edu.period}" onchange="portfolioData.education[${i}].period=this.value" placeholder="Periode (Contoh: 2026 – Sekarang)" class="bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+            <input type="text" value="${edu.details}" onchange="portfolioData.education[${i}].details=this.value" placeholder="Nilai / Keterangan" class="bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function addEducationItem() {
+      portfolioData.education.push({
+        school: "Institusi Baru",
+        major: "Jurusan",
+        period: "Tahun – Tahun",
+        details: "Keterangan prestasi atau nilai"
+      });
+      renderModalEdu();
+    }
+
+    function deleteEdu(index) {
+      portfolioData.education.splice(index, 1);
+      renderModalEdu();
+    }
+
+    function renderModalOrg() {
+      const container = document.getElementById('modalOrgContainer');
+      container.innerHTML = '';
+      portfolioData.organization.forEach((org, i) => {
+        const item = document.createElement('div');
+        item.className = "p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2";
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-rose-400 font-bold">Organisasi #${i + 1}</span>
+            <button onclick="deleteOrg(${i})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i> Hapus</button>
+          </div>
+          <input type="text" value="${org.role}" onchange="portfolioData.organization[${i}].role=this.value" placeholder="Posisi / Peran" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          <input type="text" value="${org.institution}" onchange="portfolioData.organization[${i}].institution=this.value" placeholder="Nama Organisasi / Sekolah" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          <input type="text" value="${org.period}" onchange="portfolioData.organization[${i}].period=this.value" placeholder="Periode Waktu" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          <textarea rows="2" onchange="portfolioData.organization[${i}].desc=this.value" placeholder="Deskripsi peran dan kontribusi" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white">${org.desc || ''}</textarea>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function addOrgItem() {
+      portfolioData.organization.push({
+        role: "Anggota",
+        institution: "Nama Organisasi",
+        period: "2026",
+        desc: "Deskripsi kegiatan"
+      });
+      renderModalOrg();
+    }
+
+    function deleteOrg(index) {
+      portfolioData.organization.splice(index, 1);
+      renderModalOrg();
+    }
+
+    function renderModalProj() {
+      const container = document.getElementById('modalProjContainer');
+      container.innerHTML = '';
+      portfolioData.projects.forEach((proj, i) => {
+        const item = document.createElement('div');
+        item.className = "p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2";
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-rose-400 font-bold">Proyek #${i + 1}</span>
+            <button onclick="deleteProj(${i})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i> Hapus</button>
+          </div>
+          <input type="text" value="${proj.title}" onchange="portfolioData.projects[${i}].title=this.value" placeholder="Judul Proyek" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" value="${proj.category}" onchange="portfolioData.projects[${i}].category=this.value" placeholder="Kategori" class="bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+            <input type="text" value="${proj.period}" onchange="portfolioData.projects[${i}].period=this.value" placeholder="Periode" class="bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          </div>
+          <textarea rows="2" onchange="portfolioData.projects[${i}].desc=this.value" placeholder="Deskripsi pencapaian proyek" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white">${proj.desc || ''}</textarea>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function addProjectItem() {
+      portfolioData.projects.push({
+        title: "Judul Proyek Baru",
+        period: "2026",
+        category: "Kepanitiaan / Cyber",
+        desc: "Deskripsi tanggung jawab dan hasil proyek"
+      });
+      renderModalProj();
+    }
+
+    function deleteProj(index) {
+      portfolioData.projects.splice(index, 1);
+      renderModalProj();
+    }
+
+    function renderModalAchieve() {
+      const container = document.getElementById('modalAchieveContainer');
+      container.innerHTML = '';
+      portfolioData.achievements.forEach((ach, i) => {
+        const item = document.createElement('div');
+        item.className = "p-3 bg-slate-950 border border-slate-800 rounded-lg space-y-2";
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-rose-400 font-bold">Prestasi #${i + 1}</span>
+            <button onclick="deleteAchieve(${i})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i> Hapus</button>
+          </div>
+          <input type="text" value="${ach.title}" onchange="portfolioData.achievements[${i}].title=this.value" placeholder="Nama Prestasi" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" value="${ach.year}" onchange="portfolioData.achievements[${i}].year=this.value" placeholder="Tahun" class="bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+            <input type="text" value="${ach.organizer || ''}" onchange="portfolioData.achievements[${i}].organizer=this.value" placeholder="Tingkat / Penyelenggara" class="bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white" />
+          </div>
+          <textarea rows="2" onchange="portfolioData.achievements[${i}].desc=this.value" placeholder="Keterangan singkat" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white">${ach.desc || ''}</textarea>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function addAchievementItem() {
+      portfolioData.achievements.push({
+        title: "Penghargaan Baru",
+        year: "2026",
+        organizer: "Tingkat Sekolah / Kota",
+        desc: "Deskripsi raihan prestasi"
+      });
+      renderModalAchieve();
+    }
+
+    function deleteAchieve(index) {
+      portfolioData.achievements.splice(index, 1);
+      renderModalAchieve();
+    }
+
+    // Save All Data from Modal
+    document.getElementById('btnSaveAllData').addEventListener('click', () => {
+      portfolioData.name = document.getElementById('inputName').value.trim();
+      portfolioData.role = document.getElementById('inputRole').value.trim();
+      portfolioData.email = document.getElementById('inputEmail').value.trim();
+      portfolioData.phone = document.getElementById('inputPhone').value.trim();
+      portfolioData.location = document.getElementById('inputLocation').value.trim();
+      portfolioData.summary = document.getElementById('inputSummary').value.trim();
+
+      // Skills
+      const hardInput = document.getElementById('inputHardSkills').value;
+      portfolioData.hardSkills = hardInput.split(',').map(s => s.trim()).filter(Boolean);
+
+      const softInput = document.getElementById('inputSoftSkills').value;
+      portfolioData.softSkills = softInput.split(',').map(s => s.trim()).filter(Boolean);
+
+      saveData();
+      closeEditModal();
+    });
+
+    // Reset Data
+    document.getElementById('btnResetData').addEventListener('click', () => {
+      if (confirm("Apakah Anda yakin ingin mengembalikan seluruh data portofolio ke data awal CV?")) {
+        localStorage.removeItem('el_rumi_portfolio_data');
+        portfolioData = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA));
+        renderPortfolio();
+        showToast("Data portofolio telah direset ke default.");
+      }
+    });
+
+    // Initial run
+    loadData();
+  </script>
+</body>
+</html>
